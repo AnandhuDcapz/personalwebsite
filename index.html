@@ -23,7 +23,7 @@
 	<!-- //css files -->
 	
 	<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -161,7 +161,7 @@
 			</div>
 			<div class="col-lg-7 mt-lg-0 mt-5 contact-right">
 				<h4 class="mb-4">Get In Touch</h4>
-				<form action="#" method="post">
+				<form id="submit-form"action="" >
 					<label><span class="fa mr-2 fa-user" aria-hidden="true"></span> Name</label>
 					<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
 					<div class="clearfix"></div>
@@ -178,6 +178,25 @@
 			</div>
 		</div>
 	</div>
+	<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbx4uc0KORqCTVJMfYiLom-kgpHhUe53FHDKG2v0lw/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    window.location.href="https://anandhudcapz.github.io/personalwebsite/"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </section>
 
 <footer class="py-5">
